@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '@/images/NewsNine.jpg'
 import { Link, Head } from '@inertiajs/react';
 
@@ -24,6 +24,12 @@ const mainNews = [
 ];
 
 function Home() {
+    const [searchOpen, setSearchOpen] = useState(false);
+
+    const handleSearchClick = () => {
+        setSearchOpen(true);
+    };
+
     return (
         <>
             <Head>
@@ -51,8 +57,8 @@ function Home() {
 
 
                 {/* Navigation */}
-                <nav className="bg-teal-900 text-white font-tiro">
-                    <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
+                <nav className="bg-teal-900 text-white font-tiro overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4 relative">
                         <ul className="flex h-12 space-x-0">
                             {categories.map((category, index) => (
                                 <li
@@ -72,12 +78,47 @@ function Home() {
                             <li className='flex items-center px-4 cursor-pointer transition hover:bg-teal-800'>আরও</li>
                         </ul>
                         {/* search */}
-                        <a href="#" className='h-12 px-4 border-l border-r border-white/10 hover:bg-teal-800 cursor-pointer transition flex items-center gap-2'>
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                            অনুসন্ধান
-                        </a>
+                        <div
+                            className={`
+                                h-12
+                                flex items-center gap-3
+                                transition-all duration-300 ease-in-out
+                                cursor-pointer
+                                ${searchOpen
+                                    ? 'absolute left-0 top-0 w-full bg-teal-900 z-30 px-4'
+                                    : 'px-4 border-l border-r border-white/10 hover:bg-teal-800'}
+                                `}
+                            onClick={!searchOpen ? handleSearchClick : undefined}
+                        >
+                            {!searchOpen ? (
+                                <>
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                    অনুসন্ধান
+                                </>
+                            ) : (
+                                <>
+                                    <input
+                                        autoFocus
+                                        type="text"
+                                        placeholder="খুঁজুন..."
+                                        className="flex-1 h-9 px-3 rounded text-white outline-none"
+                                    />
+
+                                    <button className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
+                                        অনুসন্ধান
+                                    </button>
+
+                                    <button
+                                        onClick={() => setSearchOpen(false)}
+                                        className="px-3 py-1 bg-red-600 rounded cursor-pointer"
+                                    >
+                                        বাতিল
+                                    </button>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </nav>
 
@@ -117,7 +158,7 @@ function Home() {
                                                 <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                 <div>
                                                     <a href="#">
-                                                        <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                        <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                     </a>
                                                 </div>
                                             </div>

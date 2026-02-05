@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '@/images/NewsNine.jpg'
 import { Link, Head } from '@inertiajs/react';
 
@@ -23,6 +23,12 @@ const mainNews = [
 ];
 
 function Home() {
+    const [searchOpen, setSearchOpen] = useState(false);
+
+    const handleSearchClick = () => {
+        setSearchOpen(true);
+    };
+
     return (
         <>
             <Head>
@@ -50,18 +56,18 @@ function Home() {
 
 
                 {/* Navigation */}
-                <nav className="bg-teal-900 text-white font-tiro">
-                    <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
+                <nav className="bg-teal-900 text-white font-tiro overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4 relative">
                         <ul className="flex h-12 space-x-0">
                             {categories.map((category, index) => (
                                 <li
                                     key={index}
                                     className={`
-                                    flex items-center px-4
-                                    cursor-pointer transition
-                                    hover:bg-teal-800
-                                    ${category.active ? 'bg-teal-950' : ''}
-                                `}
+                                                    flex items-center px-4
+                                                    cursor-pointer transition
+                                                    hover:bg-teal-800
+                                                    ${category.active ? 'bg-teal-950' : ''}
+                                                `}
                                 >
                                     <Link href={category.href}>
                                         {category.name}
@@ -71,82 +77,91 @@ function Home() {
                             <li className='flex items-center px-4 cursor-pointer transition hover:bg-teal-800'>আরও</li>
                         </ul>
                         {/* search */}
-                        <a href="#" className='h-12 px-4 border-l border-r border-white/10 hover:bg-teal-800 cursor-pointer transition flex items-center gap-2'>
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                            অনুসন্ধান
-                        </a>
+                        <div
+                            className={`
+                                                h-12
+                                                flex items-center gap-3
+                                                transition-all duration-300 ease-in-out
+                                                cursor-pointer
+                                                ${searchOpen
+                                    ? 'absolute left-0 top-0 w-full bg-teal-900 z-30 px-4'
+                                    : 'px-4 border-l border-r border-white/10 hover:bg-teal-800'}
+                                                `}
+                            onClick={!searchOpen ? handleSearchClick : undefined}
+                        >
+                            {!searchOpen ? (
+                                <>
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                    অনুসন্ধান
+                                </>
+                            ) : (
+                                <>
+                                    <input
+                                        autoFocus
+                                        type="text"
+                                        placeholder="খুঁজুন..."
+                                        className="flex-1 h-9 px-3 rounded text-white outline-none"
+                                    />
+
+                                    <button className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
+                                        অনুসন্ধান
+                                    </button>
+
+                                    <button
+                                        onClick={() => setSearchOpen(false)}
+                                        className="px-3 py-1 bg-red-600 rounded cursor-pointer"
+                                    >
+                                        বাতিল
+                                    </button>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </nav>
 
 
                 <main className='pt-6 font-tiro'>
                     {/* Hero Section */}
-                    <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-6 gap-4 pb-12">
-                        <div className="col-span-6">
-                            <h1 className='text-2xl font-bold text-teal-900 border-b-2 border-teal-900'>জাতীয়</h1>
+                    <div className="max-w-7xl mx-auto px-4 pb-12">
+                        <div className="mb-4">
+                            <h1 className='text-2xl font-bold text-teal-900 border-b-2 border-teal-900/50'>জাতীয়</h1>
                         </div>
 
-                        {/* News Grid */}
-                        <div className="col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             {/* Single Feature News */}
-                            <div className="col-span-2">
-                                <div className="relative h-100 rounded-sm overflow-hidden shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] hover:shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition">
+                            <div className="col-span-1 md:col-span-2 relative h-96 rounded-sm overflow-hidden shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] hover:shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition">
+                                {/* Background Image */}
+                                <img
+                                    src={mainNews[0].image}
+                                    alt={mainNews[0].title}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
 
-                                    {/* Background Image */}
-                                    <img
-                                        src={mainNews[0].image}
-                                        alt={mainNews[0].title}
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                    />
+                                {/* Dark Overlay */}
+                                <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                                    {/* Dark Overlay */}
-                                    <div className="absolute bottom-0 left-0 w-full h-[30%] bg-linear-to-t from-black/80 via-black/40 to-transparent" />
-
-                                    {/* Content */}
-                                    <div className="relative z-10 flex flex-col justify-end h-full p-4">
-                                        <a href="news-detail">
-                                            <h3 className="text-white text-2xl font-semibold leading-snug line-clamp-2">
-                                                {mainNews[0].title}
-                                            </h3>
-                                        </a>
-                                    </div>
-
+                                {/* Content */}
+                                <div className="relative z-10 flex flex-col justify-end h-full p-4">
+                                    <a href="news-detail">
+                                        <h3 className="text-white text-2xl font-semibold leading-snug line-clamp-2">
+                                            {mainNews[0].title}
+                                        </h3>
+                                    </a>
                                 </div>
                             </div>
 
-                            {mainNews.map((news, index) => (
+                            {/* Rest of the news in left column */}
+                            {[...mainNews, ...mainNews, ...mainNews.slice(0, 2)].map((news, index) => (
                                 <div key={index} className="bg-white rounded-sm shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_3px_1px_0_rgba(0,0,0,0.1)] transition">
                                     <div className="relative">
                                         <img src={news.image} alt={news.title} className="w-full h-48 object-cover" />
                                     </div>
                                     <div>
                                         <a href="#">
-                                            <h3 className="font-semibold text-teal-900 mb-2 py-3 px-4">{news.title}</h3>
+                                            <h3 className="font-semibold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
                                         </a>
-                                        <div className="p-3 border-t border-stone-200">
-                                            <a href="#" className="text-teal-700 text-sm hover:text-teal-900">{news.category}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* News Grid */}
-                        <div className="col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[...mainNews, ...mainNews].map((news, index) => (
-                                <div key={index} className="bg-white rounded-sm shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_3px_1px_0_rgba(0,0,0,0.1)] transition">
-                                    <div className="relative">
-                                        <img src={news.image} alt={news.title} className="w-full h-48 object-cover" />
-                                    </div>
-                                    <div>
-                                        <a href="#">
-                                            <h3 className="font-semibold text-teal-900 mb-2 py-3 px-4">{news.title}</h3>
-                                        </a>
-                                        <div className="p-3 border-t border-stone-200">
-                                            <a href="#" className="text-teal-700 text-sm hover:text-teal-900">{news.category}</a>
-                                        </div>
                                     </div>
                                 </div>
                             ))}

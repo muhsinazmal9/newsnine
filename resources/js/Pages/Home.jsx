@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '@/images/NewsNine.jpg'
 import { Link, Head } from '@inertiajs/react';
 
@@ -23,6 +23,12 @@ const mainNews = [
 ];
 
 function Home() {
+    const [searchOpen, setSearchOpen] = useState(false);
+
+    const handleSearchClick = () => {
+        setSearchOpen(true);
+    };
+
     return (
         <>
             <Head>
@@ -50,8 +56,8 @@ function Home() {
 
 
                 {/* Navigation */}
-                <nav className="bg-teal-900 text-white font-tiro">
-                    <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4">
+                <nav className="bg-teal-900 text-white font-tiro overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-4 flex items-center justify-between gap-4 relative">
                         <ul className="flex h-12 space-x-0">
                             {categories.map((category, index) => (
                                 <li
@@ -69,12 +75,48 @@ function Home() {
                             <li className='flex items-center px-4 cursor-pointer transition hover:bg-teal-800'>আরও</li>
                         </ul>
                         {/* search */}
-                        <a href="#" className='h-12 px-4 border-l border-r border-white/10 hover:bg-teal-800 cursor-pointer transition flex items-center gap-2'>
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                            অনুসন্ধান
-                        </a>
+                        <div
+                            className={`
+                                h-12
+                                flex items-center gap-3
+                                transition-all duration-300 ease-in-out
+                                cursor-pointer
+                                ${searchOpen
+                                    ? 'absolute left-0 top-0 w-full bg-teal-900 z-30 px-4'
+                                    : 'px-4 border-l border-r border-white/10 hover:bg-teal-800'}
+                                `}
+                            onClick={!searchOpen ? handleSearchClick : undefined}
+                        >
+                            {!searchOpen ? (
+                                <>
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                    অনুসন্ধান
+                                </>
+                            ) : (
+                                <>
+                                    <input
+                                        autoFocus
+                                        type="text"
+                                        placeholder="খুঁজুন..."
+                                        className="flex-1 h-9 px-3 rounded text-white outline-none"
+                                    />
+
+                                    <button className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
+                                        অনুসন্ধান
+                                    </button>
+
+                                    <button
+                                        onClick={() => setSearchOpen(false)}
+                                        className="px-3 py-1 bg-red-600 rounded cursor-pointer"
+                                    >
+                                        বাতিল
+                                    </button>
+                                </>
+                            )}
+                        </div>
+
                     </div>
                 </nav>
 
@@ -118,7 +160,7 @@ function Home() {
                                     </div>
                                     <div>
                                         <a href="#">
-                                            <h3 className="font-semibold text-teal-900 mb-2 py-3 px-4">{news.title}</h3>
+                                            <h3 className="font-semibold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
                                         </a>
                                         <div className="p-3 border-t border-stone-200">
                                             <a href="#" className="text-teal-700 text-sm hover:text-teal-900">{news.category}</a>
@@ -139,7 +181,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -164,7 +206,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -187,7 +229,7 @@ function Home() {
                                     </div>
                                     <div>
                                         <a href="#">
-                                            <h3 className="font-semibold text-teal-900 mb-2 py-3 px-4">{news.title}</h3>
+                                            <h3 className="font-semibold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
                                         </a>
                                     </div>
                                 </div>
@@ -198,7 +240,7 @@ function Home() {
                     {/* National Section */}
                     <div className="py-20 bg-white">
                         <div className='max-w-7xl mx-auto px-4'>
-                            <h2 className="text-2xl font-bold text-teal-900 mb-4 border-l-4 border-teal-900 pl-2">জাতীয়</h2>
+                            <h2 className="text-2xl font-bold text-teal-900 mb-4 border-l-4 border-teal-900/20 pl-2">জাতীয়</h2>
 
                             <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                                 <div className='col-span-2'>
@@ -218,7 +260,7 @@ function Home() {
                                                         <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                         <div>
                                                             <a href="#">
-                                                                <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                                <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -238,7 +280,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -254,7 +296,7 @@ function Home() {
                     {/* International Section */}
                     <div className="py-20 bg-stone-100">
                         <div className='max-w-7xl mx-auto px-4'>
-                            <h2 className="text-2xl font-bold text-teal-900 mb-4 border-l-4 border-teal-900 pl-2">আন্তর্জাতিক</h2>
+                            <h2 className="text-2xl font-bold text-teal-900 mb-4 border-l-4 border-teal-900/20 pl-2">আন্তর্জাতিক</h2>
                             <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                                 <div className='col-span-2'>
                                     <img src={mainNews[0].image} alt={mainNews[0].title} className="w-full object-cover" />
@@ -275,7 +317,7 @@ function Home() {
                                                         <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                         <div>
                                                             <a href="#">
-                                                                <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                                <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -295,7 +337,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -311,6 +353,10 @@ function Home() {
                     {/* Another News Section */}
                     <div className="py-20 bg-white">
                         <div className='max-w-7xl mx-auto px-4'>
+                            {/* Ad area */}
+                            <div className="w-full h-32 bg-stone-200 mb-4">
+                                <p className="text-center text-stone-500"></p>
+                            </div>
                             <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
                                 <div className="bg-stone-100 rounded-sm overflow-hidden">
                                     <div className="py-2 px-4 text-lg bg-teal-950 text-white text-center mb-4">বিশ্ব অর্থনীতি</div>
@@ -321,7 +367,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -340,7 +386,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -359,7 +405,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -378,7 +424,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -404,7 +450,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -423,7 +469,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -442,7 +488,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -461,7 +507,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-teal-900">{news.title}</h3>
+                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
