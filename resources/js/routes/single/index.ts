@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\HomeController::category
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 export const category = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ category.definition = {
 
 /**
 * @see \App\Http\Controllers\HomeController::category
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 category.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ category.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\HomeController::category
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 category.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ category.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\HomeController::category
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 category.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({

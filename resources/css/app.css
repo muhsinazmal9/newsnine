@@ -1,3 +1,39 @@
+@font-face {
+    font-family: 'July';
+    src: url('/public/fonts/July-Italic.woff2') format('woff2'),
+        url('/public/fonts/July-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'July';
+    src: url('/public/fonts/July-Regular.woff2') format('woff2'),
+        url('/public/fonts/July-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'July';
+    src: url('/public/fonts/July-Bold-Italic.woff2') format('woff2'),
+        url('/public/fonts/July-Bold-Italic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'July';
+    src: url('/public/fonts/July-Bold.woff2') format('woff2'),
+        url('/public/fonts/July-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 @import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -11,5 +47,12 @@
 
     --font-serif: 'Source Serif 4', ui-serif, serif;
 
-    --font-tiro: 'Tiro Bangla', ui-serif, serif;
+    --font-tiro: 'July', ui-serif, serif;
 }
+
+@layer base {
+    body {
+        @apply text-[1.2rem];
+    }
+}
+        

@@ -106,9 +106,9 @@ function Home() {
                                         className="flex-1 h-9 px-3 rounded text-white outline-none"
                                     />
 
-                                    <button className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
+                                    <Link href="/search-result" className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
                                         অনুসন্ধান
-                                    </button>
+                                    </Link>
 
                                     <button
                                         onClick={() => setSearchOpen(false)}
@@ -158,7 +158,7 @@ function Home() {
                                                 <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                 <div>
                                                     <a href="#">
-                                                        <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                        <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                     </a>
                                                 </div>
                                             </div>
@@ -176,7 +176,7 @@ function Home() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {/* Left: Publication Info */}
                             <div>
-                                <h3 className="text-lg font-semibold mb-4 text-white">
+                                <h3 className="text-lg font-bold mb-4 text-white">
                                     NewsNine24.com
                                 </h3>
 

@@ -103,9 +103,9 @@ function Home() {
                                         className="flex-1 h-9 px-3 rounded text-white outline-none"
                                     />
 
-                                    <button className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
+                                    <Link href="/search-result" className="px-3 py-1 bg-teal-700 rounded cursor-pointer">
                                         অনুসন্ধান
-                                    </button>
+                                    </Link>
 
                                     <button
                                         onClick={() => setSearchOpen(false)}
@@ -126,48 +126,50 @@ function Home() {
                     <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-7 gap-4 pb-12">
 
                         {/* News Grid */}
-                        <div className="col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {/* Single Feature News */}
-                            <div className="col-span-2">
-                                <div className="relative h-100 rounded-sm overflow-hidden shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] hover:shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition">
+                        <div className="col-span-3">
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                                {/* Single Feature News */}
+                                <div className="col-span-2">
+                                    <div className="relative h-100 rounded-sm overflow-hidden shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] hover:shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition">
 
-                                    {/* Background Image */}
-                                    <img
-                                        src={mainNews[0].image}
-                                        alt={mainNews[0].title}
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                    />
+                                        {/* Background Image */}
+                                        <img
+                                            src={mainNews[0].image}
+                                            alt={mainNews[0].title}
+                                            className="absolute inset-0 w-full h-full object-cover"
+                                        />
 
-                                    {/* Dark Overlay */}
-                                    <div className="absolute bottom-0 left-0 w-full h-[30%] bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+                                        {/* Dark Overlay */}
+                                        <div className="absolute bottom-0 left-0 w-full h-[30%] bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
-                                    {/* Content */}
-                                    <div className="relative z-10 flex flex-col justify-end h-full p-4">
-                                        <a href="news-detail">
-                                            <h3 className="text-white text-2xl font-semibold leading-snug line-clamp-2">
-                                                {mainNews[0].title}
-                                            </h3>
-                                        </a>
+                                        {/* Content */}
+                                        <div className="relative z-10 flex flex-col justify-end h-full p-4">
+                                            <a href="news-detail">
+                                                <h3 className="text-white text-2xl font-bold leading-snug">
+                                                    {mainNews[0].title}
+                                                </h3>
+                                            </a>
+                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
 
-                            {mainNews.map((news, index) => (
-                                <div key={index} className="bg-white rounded-sm shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_3px_1px_0_rgba(0,0,0,0.1)] transition">
-                                    <div className="relative">
-                                        <img src={news.image} alt={news.title} className="w-full h-48 object-cover" />
-                                    </div>
-                                    <div>
-                                        <a href="#">
-                                            <h3 className="font-semibold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
-                                        </a>
-                                        <div className="p-3 border-t border-stone-200">
-                                            <a href="#" className="text-teal-700 text-sm hover:text-teal-900">{news.category}</a>
+                                {mainNews.map((news, index) => (
+                                    <div key={index} className="bg-white rounded-sm shadow-[0_2px_1px_0_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_3px_1px_0_rgba(0,0,0,0.1)] transition">
+                                        <div className="relative">
+                                            <img src={news.image} alt={news.title} className="w-full h-48 object-cover" />
+                                        </div>
+                                        <div>
+                                            <a href="#">
+                                                <h3 className="font-bold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
+                                            </a>
+                                            <div className="p-3 border-t border-stone-200">
+                                                <a href="#" className="text-teal-700 text-sm hover:text-teal-900">{news.category}</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
 
                         {/* Sidebar */}
@@ -181,7 +183,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -206,7 +208,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -229,7 +231,7 @@ function Home() {
                                     </div>
                                     <div>
                                         <a href="#">
-                                            <h3 className="font-semibold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
+                                            <h3 className="font-bold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
                                         </a>
                                     </div>
                                 </div>
@@ -246,7 +248,7 @@ function Home() {
                                 <div className='col-span-2'>
                                     <img src={mainNews[0].image} alt={mainNews[0].title} className="w-full object-cover mb-4" />
                                     <a href="#" className="bg-white rounded-sm overflow-hidden pt-5 space-y-3 group">
-                                        <h3 className="font-semibold text-teal-900 mb-2 text-2xl group-hover:text-teal-800 transition">জানুয়ারিতে প্রধানমন্ত্রী আসবেন ঝালকাঠি</h3>
+                                        <h3 className="font-bold text-teal-900 mb-2 text-2xl group-hover:text-teal-800 transition">জানুয়ারিতে প্রধানমন্ত্রী আসবেন ঝালকাঠি</h3>
                                         <p className="text-stone-500 leading-7 group-hover:text-stone-600 transition">ঝালকাঠি সংবাদদাতা: ঝালকাঠি জেলা আওয়ামী লীগের বর্ধিত সভা অনুষ্ঠিত হয়েছে। বুধবার বিকেলে জেলা আওয়ামী লীগ কার্যালয়ে এ সভার আয়োজন করা হয়। এতে প্রধান অতিথি ছিলেন আওয়ামী লীগের উপদেষ্টা পরিষদের সদস্য ও সাবেক শিল্পমন্ত্রী আমির হোসেন আমু। বর্ধিত সভায় জানানো হয় আগামী বছরের জানুয়ারি মাসে ঝালকাঠিতে আওয়ামী লীগের বিশাল সমাবেশ অনুষ্ঠিত</p>
                                     </a>
                                 </div>
@@ -260,7 +262,7 @@ function Home() {
                                                         <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                         <div>
                                                             <a href="#">
-                                                                <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                                <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -280,7 +282,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -302,7 +304,7 @@ function Home() {
                                     <img src={mainNews[0].image} alt={mainNews[0].title} className="w-full object-cover" />
                                     <div className="rounded-sm overflow-hidden pt-5 space-y-3">
                                         <a href="#">
-                                            <h3 className="font-semibold text-teal-900 mb-2 text-2xl">জানুয়ারিতে প্রধানমন্ত্রী আসবেন ঝালকাঠি</h3>
+                                            <h3 className="font-bold text-teal-900 mb-2 text-2xl">জানুয়ারিতে প্রধানমন্ত্রী আসবেন ঝালকাঠি</h3>
                                         </a>
                                         <p className="text-stone-600 leading-7">ঝালকাঠি সংবাদদাতা: ঝালকাঠি জেলা আওয়ামী লীগের বর্ধিত সভা অনুষ্ঠিত হয়েছে। বুধবার বিকেলে জেলা আওয়ামী লীগ কার্যালয়ে এ সভার আয়োজন করা হয়। এতে প্রধান অতিথি ছিলেন আওয়ামী লীগের উপদেষ্টা পরিষদের সদস্য ও সাবেক শিল্পমন্ত্রী আমির হোসেন আমু। বর্ধিত সভায় জানানো হয় আগামী বছরের জানুয়ারি মাসে ঝালকাঠিতে আওয়ামী লীগের বিশাল সমাবেশ অনুষ্ঠিত</p>
                                     </div>
@@ -317,7 +319,7 @@ function Home() {
                                                         <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                         <div>
                                                             <a href="#">
-                                                                <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                                <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -337,7 +339,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -367,7 +369,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -386,7 +388,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -405,7 +407,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -424,7 +426,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -450,7 +452,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -469,7 +471,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -488,7 +490,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -507,7 +509,7 @@ function Home() {
                                                     <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                     <div>
                                                         <a href="#">
-                                                            <h3 className="font-semibold text-stone-800">{news.title}</h3>
+                                                            <h3 className="text-stone-800 font-bold">{news.title}</h3>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -526,7 +528,7 @@ function Home() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {/* Left: Publication Info */}
                             <div>
-                                <h3 className="text-lg font-semibold mb-4 text-white">
+                                <h3 className="text-lg font-bold mb-4 text-white">
                                     NewsNine24.com
                                 </h3>
 

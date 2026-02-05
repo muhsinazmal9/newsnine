@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -15,5 +14,10 @@ class HomeController extends Controller
     public function singleCategory()
     {
         return Inertia::render('SingleCategory');
+    }
+
+    public function searchResult()
+    {
+        return Inertia::render('SearchResult');
     }
 }

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\HomeController::index
- * @see app/Http/Controllers/HomeController.php:10
+ * @see app/Http/Controllers/HomeController.php:9
  * @route '/'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\HomeController::index
- * @see app/Http/Controllers/HomeController.php:10
+ * @see app/Http/Controllers/HomeController.php:9
  * @route '/'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\HomeController::index
- * @see app/Http/Controllers/HomeController.php:10
+ * @see app/Http/Controllers/HomeController.php:9
  * @route '/'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\HomeController::index
- * @see app/Http/Controllers/HomeController.php:10
+ * @see app/Http/Controllers/HomeController.php:9
  * @route '/'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\HomeController::singleCategory
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 export const singleCategory = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ singleCategory.definition = {
 
 /**
 * @see \App\Http\Controllers\HomeController::singleCategory
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 singleCategory.url = (options?: RouteQueryOptions) => {
@@ -68,7 +68,7 @@ singleCategory.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\HomeController::singleCategory
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 singleCategory.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -77,13 +77,56 @@ singleCategory.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\HomeController::singleCategory
- * @see app/Http/Controllers/HomeController.php:15
+ * @see app/Http/Controllers/HomeController.php:14
  * @route '/single-category'
  */
 singleCategory.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: singleCategory.url(options),
     method: 'head',
 })
-const HomeController = { index, singleCategory }
+
+/**
+* @see \App\Http\Controllers\HomeController::searchResult
+ * @see app/Http/Controllers/HomeController.php:19
+ * @route '/search-result'
+ */
+export const searchResult = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: searchResult.url(options),
+    method: 'get',
+})
+
+searchResult.definition = {
+    methods: ["get","head"],
+    url: '/search-result',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\HomeController::searchResult
+ * @see app/Http/Controllers/HomeController.php:19
+ * @route '/search-result'
+ */
+searchResult.url = (options?: RouteQueryOptions) => {
+    return searchResult.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\HomeController::searchResult
+ * @see app/Http/Controllers/HomeController.php:19
+ * @route '/search-result'
+ */
+searchResult.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: searchResult.url(options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\HomeController::searchResult
+ * @see app/Http/Controllers/HomeController.php:19
+ * @route '/search-result'
+ */
+searchResult.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: searchResult.url(options),
+    method: 'head',
+})
+const HomeController = { index, singleCategory, searchResult }
 
 export default HomeController
