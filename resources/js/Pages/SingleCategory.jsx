@@ -22,8 +22,8 @@ function SingleCategory() {
 
             {/* Hero Section */}
             <div className="max-w-7xl mx-auto px-4 pb-12">
-                <div className="mb-4">
-                    <h1 className='text-2xl font-bold text-teal-900 border-b-2 border-teal-900/50'>জাতীয়</h1>
+                <div className="mb-6">
+                    <h1 className='text-2xl font-bold text-teal-900 border-b border-teal-900/50 pb-2'>জাতীয়</h1>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -42,7 +42,7 @@ function SingleCategory() {
                         {/* Content */}
                         <div className="relative z-10 flex flex-col justify-end h-full p-4">
                             <a href="news-detail">
-                                <h3 className="text-white text-2xl font-bold leading-snug ">
+                                <h3 className="text-white text-3xl font-bold leading-snug ">
                                     {mainNews[0].title}
                                 </h3>
                             </a>

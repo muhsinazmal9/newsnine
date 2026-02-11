@@ -43,7 +43,7 @@ function Home() {
                                 {/* Content */}
                                 <div className="relative z-10 flex flex-col justify-end h-full p-4">
                                     <a href="news-detail">
-                                        <h3 className="text-white text-2xl font-bold leading-snug">
+                                        <h3 className="text-white text-3xl font-bold leading-11">
                                             {mainNews[0].title}
                                         </h3>
                                     </a>
@@ -59,7 +59,7 @@ function Home() {
                                 </div>
                                 <div>
                                     <a href="#">
-                                        <h3 className="font-bold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
+                                        <h3 className="font-bold text-stone-700 hover:text-teal-900 mb-2 py-3 px-4 transition text-lg">{news.title}</h3>
                                     </a>
                                     <div className="p-3 border-t border-stone-200">
                                         <a href="#" className="text-teal-700 text-sm hover:text-teal-900">{news.category}</a>
@@ -81,7 +81,7 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
@@ -106,7 +106,7 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
@@ -129,7 +129,7 @@ function Home() {
                             </div>
                             <div>
                                 <a href="#">
-                                    <h3 className="font-bold text-stone-800 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
+                                    <h3 className="font-bold text-stone-700 hover:text-teal-900 mb-2 py-3 px-4 transition">{news.title}</h3>
                                 </a>
                             </div>
                         </div>
@@ -160,11 +160,11 @@ function Home() {
                                                 <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                 <div>
                                                     <a href="#">
-                                                        <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                        <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                     </a>
                                                 </div>
                                             </div>
-                                            <hr className="border-stone-300 last:hidden" />
+                                            <hr className="border-stone-200 last:hidden" />
                                         </React.Fragment>
                                     ))}
                                 </div>
@@ -180,11 +180,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -217,11 +217,11 @@ function Home() {
                                                 <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                                 <div>
                                                     <a href="#">
-                                                        <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                        <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                     </a>
                                                 </div>
                                             </div>
-                                            <hr className="border-stone-300 last:hidden" />
+                                            <hr className="border-stone-200 last:hidden" />
                                         </React.Fragment>
                                     ))}
                                 </div>
@@ -237,11 +237,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -267,11 +267,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -286,11 +286,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -305,11 +305,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -324,11 +324,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -350,11 +350,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -369,11 +369,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -388,11 +388,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>
@@ -407,11 +407,11 @@ function Home() {
                                             <img src={news.image} alt={news.title} className="w-16 h-12 object-cover" />
                                             <div>
                                                 <a href="#">
-                                                    <h3 className="text-stone-800 font-bold">{news.title}</h3>
+                                                    <h3 className="text-stone-700 font-bold">{news.title}</h3>
                                                 </a>
                                             </div>
                                         </div>
-                                        <hr className="border-stone-300 last:hidden" />
+                                        <hr className="border-stone-200 last:hidden" />
                                     </React.Fragment>
                                 ))}
                             </div>

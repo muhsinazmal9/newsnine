@@ -22,8 +22,8 @@ function SearchResult() {
 
             {/* Hero Section */}
             <div className="max-w-7xl mx-auto px-4 pb-12">
-                <div className="mb-4">
-                    <h1 className='text-2xl font-bold text-teal-900 border-b-2 border-teal-900/50'>অনুসন্ধানের ফলাফল</h1>
+                <div className="mb-6">
+                    <h1 className='text-2xl font-bold text-teal-900 border-b border-teal-900/50 pb-2'>অনুসন্ধানের ফলাফল</h1>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
